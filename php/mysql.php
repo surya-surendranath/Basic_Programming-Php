@@ -28,16 +28,28 @@ if ($conn->query($sql) === TRUE) {
 	)";
 	*/
 
-$sql = "INSERT INTO MYemployee (firstname, lastname, email) VALUES ('neo', 'jenny', 'jenny@gmail.com')";
+// $sql = "INSERT INTO MYemployee (firstname, lastname, email) VALUES ('neo', 'jenny', 'jenny@gmail.com')";
 
-	if ($conn->query($sql) ===TRUE) {
-		$last_id =$conn->insert_id;
-		//echo "Table MYemployee created succesfully";
-		echo "New record created succesfully, Last inserted id is", $last_id ;
+// 	if ($conn->query($sql) ===TRUE) {
+// 		$last_id =$conn->insert_id;
+// 		//echo "Table MYemployee created succesfully";
+// 		echo "New record created succesfully, Last inserted id is", $last_id ;
 
-	} else {
-		echo "Error creating table : " . $conn->error;
-	}
+// 	} else {
+// 		echo "Error creating table : " . $conn->error;
+// 	}
+
+$sql = "SELECT id, firstname, lastname FROM MYemployee";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+	while($row = $result->fetch_assoc()) {
+		echo "id: " .$row["id"]. " - Name: " . $row["firstname"]. " " .$roe["lastname"]. "<br>";
+			}
+		} else {
+			echo "0 results";
+		}
+	
 
 	$conn->close();
 ?>
