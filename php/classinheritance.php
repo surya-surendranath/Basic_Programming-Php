@@ -38,7 +38,7 @@
 
 		function draw() {
 			print("Rectangle currenytly at " . $this->get_x() . ":" .
-											   $this->get_y() . "<br />");
+											   $this->set_y() . "<br />");
 		}
 	}
 
