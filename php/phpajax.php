@@ -1,21 +1,5 @@
-<script>
-function showHint(str) {
-	if (str.length == 0) {
-		document.getElementById("txtHint").innerHTML = "";
-		return;
-	} else {
-		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.onreadystatechange = function() {
-			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-				document.getElemenById("txtHint").innerHTML = xmlhttp.responseText;
-			}
-		};
-		xmlhttp.open("GET", "phpajax.php?q=" + str, true);
-	}
 
-	}
-}
-</script>
+
 <?php
 $a[] = "Anna";
 $a[] = "Brittany";
@@ -69,12 +53,8 @@ if ($q !=="") {
 	}
 
 }
+
 echo $hint ==="" ? "no suggestion" : "$hint";
+
 ?>
-<p><b>Start typing a name in the input field below:</b></p>
-<form>
-First name:<input type="text" onkeyup="showHint(this.value)">
-</form>
-<p>Suggestions: <span id="txtHint"></span></p>
-</body>
-</html>
+
